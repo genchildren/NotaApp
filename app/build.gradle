@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'realm-android'
+apply plugin: 'realm-android'
 
 android {
+    signingConfigs {
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.hackage.genchildren.nota"
@@ -10,12 +12,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        /*javaCompileOptions {
-            annotationProcessorOptions {
-                includeCompileClasspath = true
-           }
-      } */
     }
     buildTypes {
         release {
@@ -23,18 +19,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    /* variantFilter { variant ->
+         if (variant.buildType.name.equals('debug')) {
+             variant.setIgnore(true)
+         }
+     } */
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-   implementation 'com.google.dagger:dagger-android:2.11'
-    implementation 'com.google.dagger:dagger-android-support:2.11'
-
-    implementation 'io.realm:realm-android:0.87.4'
-    compile 'io.realm:android-adapters:2.0.0'
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //implementation 'io.realm:realm-android:0.87.4'
+    //compile 'io.realm:android-adapters:2.0.0'
+    //annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
+    //annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    //compile 'io.realm:realm-android:0.82.1'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:design:27.1.1'

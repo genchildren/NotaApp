@@ -1,107 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CreateTask">
 
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="38dp">
-
-        <RadioButton
-            android:id="@+id/forSelfRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="For me" />
-
-        <RadioButton
-            android:id="@+id/forOthersRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="For others" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/ChooseTargetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="126dp"
-        android:onClick="chooseWhoOnClick"
-        android:text="who?" />
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
     <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        android:weightSum="22"
+        tools:context="com.example.tsundere.teamhackage.AddMemberActivity">
 
         <EditText
             android:id="@+id/taskName"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
+            android:layout_marginStart="20dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="206dp"
-            android:ems="10"
+            android:layout_marginTop="20dp"
             android:hint="Task name"
             android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/taskInfo"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="176dp"
-            android:layout_weight="1"
-            android:ems="12"
+            android:layout_marginStart="20dp"
             android:hint="Task info"
             android:inputType="textMultiLine" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="102dp"
-        android:layout_marginStart="29dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/saveEditButton"
-            style="?android:attr/borderlessButtonStyle"
+        <LinearLayout
+            android:id="@+id/dateLinearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="addTaskOnClick"
-            android:text="Accept"
-            android:textColor="@android:color/holo_green_light"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+            <CheckBox
+                android:id="@+id/deadlineCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="deadlineCheckOnClick"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:text="With deadline" />
+            <EditText
+                android:id="@+id/dateEditText"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:hint="Date"
+                android:visibility="gone"
+                android:inputType="date"
+                android:singleLine="true" />
+            <EditText
+                android:id="@+id/timeEditText"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:visibility="gone"
+                android:hint="Time"
+                android:inputType="time" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/rejectEditButton"
-            style="?android:attr/borderlessButtonStyle"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:onClick="cancelOnClick"
-            android:text="Cancel"
-            android:textColor="#ff0000"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:onClick="radioOnClick"
+                android:layout_marginTop="20dp">
+
+                <RadioButton
+                    android:id="@+id/forSelfRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="For me" />
+
+                <RadioButton
+                    android:id="@+id/forOthersRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="For others" />
+            </RadioGroup>
+            <Button
+                android:id="@+id/chooseTargetButton"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="chooseWhoOnClick"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:text="choose targets"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/saveEditButton"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addTaskOnClick"
+                android:text="Accept"
+                android:textColor="@android:color/holo_green_light"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/rejectEditButton"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:onClick="cancelOnClick"
+                android:text="Cancel"
+                android:textColor="#ff0000"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</RelativeLayout>
+</ScrollView>

@@ -1,24 +1,21 @@
 package com.hackage.genchildren.nota;
 
 import io.realm.RealmObject;
-import io.realm.annotations.Required;
 
 public class Task extends RealmObject {
-    @Required
     private String name;
-    @Required
+    
     private int icon;
-    @Required
-    private int fromId;
-    @Required
+    
+    private String fromId;
+    
     private int priority;
-    @Required
+    
     private boolean deadline;
-    @Required
+    
     private String content;
     private int time;
-    private int data;
-    //TODO more stuff
+    private int date;
 
     public String getName() {
         return name;
@@ -36,11 +33,11 @@ public class Task extends RealmObject {
         this.icon = icon;
     }
 
-    public int getFromId() {
+    public String getFromId() {
         return fromId;
     }
 
-    public void setFromId(int fromId) {
+    public void setFromId(String fromId) {
         this.fromId = fromId;
     }
 
@@ -68,13 +65,6 @@ public class Task extends RealmObject {
         this.time = time;
     }
 
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
-    }
 
     public String getContent() {
         return content;
@@ -82,5 +72,13 @@ public class Task extends RealmObject {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
     }
 }

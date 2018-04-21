@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_add_white_24px"
-            android:title="Recieved tasks" />
+            android:id="@+id/todayTasks"
+            android:icon="@drawable/segodnya"
+            android:title="Today" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_launcher_foreground"
-            android:title="Today tasks" />
+            android:id="@+id/weekTasks"
+            android:icon="@drawable/nedelya"
+            android:title="This week" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_launcher_background"
-            android:title="Week tasks" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_launcher_foreground"
-            android:title="New task group" />
+            android:id="@+id/monthTasks"
+            android:icon="@drawable/mesyats"
+            android:title="This month" />
     </group>
+
+    <item android:title="Connections"
+        android:id="@+id/conntectionsContainter">
+        <menu>
+            <item
+                android:id="@+id/add_user"
+                android:title="Add connection" />
+        </menu>
+    </item>
+
 </menu>

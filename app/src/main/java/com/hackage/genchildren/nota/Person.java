@@ -7,35 +7,51 @@ import io.realm.annotations.Required;
 
 public class Person extends RealmObject {
     @PrimaryKey
-    private long id;
+    private String phoneNumber;
     @Required
-    private String name;
-    @Required
-    private int phoneNumber;
+    private String firstName;
+    private String lastName;
+    private Integer type;
     private RealmList<Task> tasks;
 
-    public long getId() {
-        return id;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getName() {
-        return name;
+    public RealmList<Task> getTasks() {
+        return tasks;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTasks(RealmList<Task> tasks) {
+        this.tasks = tasks;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }
 
